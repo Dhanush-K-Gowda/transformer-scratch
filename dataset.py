@@ -32,7 +32,7 @@ class BilingualDataset(Dataset):
         dec_input_tokens = self.tokenizer_tgt.encode(tgt_text).ids
 
         # **Change 1: Truncate tokens to ensure they fit within seq_len before adding special tokens**
-        enc_input_tokens = enc_input_tokens[:self.seq_len - 2]  # Subtract 2 for <s> and </s>
+        enc_input_tokens = enc_input_tokens[:self.seq_len - 2] # Subtract 2 for <s> and </s>
         dec_input_tokens = dec_input_tokens[:self.seq_len - 1]  # Subtract 1 for <s>
 
         # **Change 2: Calculate padding tokens**
