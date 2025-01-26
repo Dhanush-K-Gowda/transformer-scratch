@@ -1,0 +1,26 @@
+{
+  "os": "Linux-6.1.85+-x86_64-with-glibc2.35",
+  "python": "CPython 3.11.11",
+  "startedAt": "2025-01-26T07:28:02.598384Z",
+  "program": "/content/drive/My Drive/transformer/train.py",
+  "codePath": "train.py",
+  "root": "/content/drive/My Drive/transformer",
+  "host": "b528881a9078",
+  "executable": "/usr/bin/python3",
+  "codePathLocal": "train.py",
+  "cpu_count": 1,
+  "cpu_count_logical": 2,
+  "disk": {
+    "/": {
+      "total": "115658190848",
+      "used": "34886410240"
+    }
+  },
+  "memory": {
+    "total": "13609431040"
+  },
+  "cpu": {
+    "count": 1,
+    "countLogical": 2
+  }
+}

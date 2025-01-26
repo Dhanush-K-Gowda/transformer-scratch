@@ -1,0 +1,14 @@
+{"time":"2025-01-26T07:28:02.619744004Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_072802-520dmfwr/logs/debug-core.log"}
+{"time":"2025-01-26T07:28:02.731152141Z","level":"INFO","msg":"created new stream","id":"520dmfwr"}
+{"time":"2025-01-26T07:28:02.732153512Z","level":"INFO","msg":"stream: started","id":"520dmfwr"}
+{"time":"2025-01-26T07:28:02.732184322Z","level":"INFO","msg":"writer: Do: started","stream_id":"520dmfwr"}
+{"time":"2025-01-26T07:28:02.732249043Z","level":"INFO","msg":"handler: started","stream_id":"520dmfwr"}
+{"time":"2025-01-26T07:28:02.732283642Z","level":"INFO","msg":"sender: started","stream_id":"520dmfwr"}
+{"time":"2025-01-26T07:28:02.768598046Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T07:28:04.84763873Z","level":"INFO","msg":"stream: closing","id":"520dmfwr"}
+{"time":"2025-01-26T07:28:04.847807736Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T07:28:04.848660731Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T07:28:04.848904726Z","level":"INFO","msg":"handler: closed","stream_id":"520dmfwr"}
+{"time":"2025-01-26T07:28:04.849236841Z","level":"INFO","msg":"writer: Close: closed","stream_id":"520dmfwr"}
+{"time":"2025-01-26T07:28:04.849423293Z","level":"INFO","msg":"sender: closed","stream_id":"520dmfwr"}
+{"time":"2025-01-26T07:28:04.851409229Z","level":"INFO","msg":"stream: closed","id":"520dmfwr"}

@@ -1,0 +1,14 @@
+{"time":"2025-01-26T08:58:45.71319359Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_085845-2yeofd7g/logs/debug-core.log"}
+{"time":"2025-01-26T08:58:45.819448209Z","level":"INFO","msg":"created new stream","id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:45.820180765Z","level":"INFO","msg":"stream: started","id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:45.820211759Z","level":"INFO","msg":"writer: Do: started","stream_id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:45.820235451Z","level":"INFO","msg":"handler: started","stream_id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:45.820264577Z","level":"INFO","msg":"sender: started","stream_id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:45.847236016Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T08:58:47.932163969Z","level":"INFO","msg":"stream: closing","id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:47.932255497Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T08:58:47.933189693Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T08:58:47.933462741Z","level":"INFO","msg":"handler: closed","stream_id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:47.933559179Z","level":"INFO","msg":"writer: Close: closed","stream_id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:47.933625333Z","level":"INFO","msg":"sender: closed","stream_id":"2yeofd7g"}
+{"time":"2025-01-26T08:58:47.93732201Z","level":"INFO","msg":"stream: closed","id":"2yeofd7g"}

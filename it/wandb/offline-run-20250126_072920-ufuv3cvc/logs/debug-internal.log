@@ -1,0 +1,14 @@
+{"time":"2025-01-26T07:29:20.538063003Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_072920-ufuv3cvc/logs/debug-core.log"}
+{"time":"2025-01-26T07:29:20.650173277Z","level":"INFO","msg":"created new stream","id":"ufuv3cvc"}
+{"time":"2025-01-26T07:29:20.651361429Z","level":"INFO","msg":"stream: started","id":"ufuv3cvc"}
+{"time":"2025-01-26T07:29:20.651429244Z","level":"INFO","msg":"writer: Do: started","stream_id":"ufuv3cvc"}
+{"time":"2025-01-26T07:29:20.651477942Z","level":"INFO","msg":"handler: started","stream_id":"ufuv3cvc"}
+{"time":"2025-01-26T07:29:20.651522195Z","level":"INFO","msg":"sender: started","stream_id":"ufuv3cvc"}
+{"time":"2025-01-26T07:29:20.67124802Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T07:34:42.152850341Z","level":"INFO","msg":"stream: closing","id":"ufuv3cvc"}
+{"time":"2025-01-26T07:34:42.152970853Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T07:34:42.154088486Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T07:34:42.154467922Z","level":"INFO","msg":"handler: closed","stream_id":"ufuv3cvc"}
+{"time":"2025-01-26T07:34:42.15473126Z","level":"INFO","msg":"writer: Close: closed","stream_id":"ufuv3cvc"}
+{"time":"2025-01-26T07:34:42.154930672Z","level":"INFO","msg":"sender: closed","stream_id":"ufuv3cvc"}
+{"time":"2025-01-26T07:34:42.156925946Z","level":"INFO","msg":"stream: closed","id":"ufuv3cvc"}

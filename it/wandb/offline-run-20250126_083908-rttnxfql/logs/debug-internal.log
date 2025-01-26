@@ -1,0 +1,14 @@
+{"time":"2025-01-26T08:39:08.429174674Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_083908-rttnxfql/logs/debug-core.log"}
+{"time":"2025-01-26T08:39:08.537692537Z","level":"INFO","msg":"created new stream","id":"rttnxfql"}
+{"time":"2025-01-26T08:39:08.538456789Z","level":"INFO","msg":"stream: started","id":"rttnxfql"}
+{"time":"2025-01-26T08:39:08.538492525Z","level":"INFO","msg":"writer: Do: started","stream_id":"rttnxfql"}
+{"time":"2025-01-26T08:39:08.538521335Z","level":"INFO","msg":"handler: started","stream_id":"rttnxfql"}
+{"time":"2025-01-26T08:39:08.538568837Z","level":"INFO","msg":"sender: started","stream_id":"rttnxfql"}
+{"time":"2025-01-26T08:39:08.566423983Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T08:47:49.776009687Z","level":"INFO","msg":"stream: closing","id":"rttnxfql"}
+{"time":"2025-01-26T08:47:49.776150781Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T08:47:49.77721768Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T08:47:49.77741307Z","level":"INFO","msg":"handler: closed","stream_id":"rttnxfql"}
+{"time":"2025-01-26T08:47:49.777499809Z","level":"INFO","msg":"writer: Close: closed","stream_id":"rttnxfql"}
+{"time":"2025-01-26T08:47:49.777589145Z","level":"INFO","msg":"sender: closed","stream_id":"rttnxfql"}
+{"time":"2025-01-26T08:47:49.779909749Z","level":"INFO","msg":"stream: closed","id":"rttnxfql"}

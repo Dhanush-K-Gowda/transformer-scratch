@@ -1,0 +1,14 @@
+{"time":"2025-01-26T08:07:59.283435871Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_080758-ggt4kvme/logs/debug-core.log"}
+{"time":"2025-01-26T08:07:59.390878744Z","level":"INFO","msg":"created new stream","id":"ggt4kvme"}
+{"time":"2025-01-26T08:07:59.391613948Z","level":"INFO","msg":"stream: started","id":"ggt4kvme"}
+{"time":"2025-01-26T08:07:59.39164068Z","level":"INFO","msg":"writer: Do: started","stream_id":"ggt4kvme"}
+{"time":"2025-01-26T08:07:59.391677441Z","level":"INFO","msg":"handler: started","stream_id":"ggt4kvme"}
+{"time":"2025-01-26T08:07:59.391708208Z","level":"INFO","msg":"sender: started","stream_id":"ggt4kvme"}
+{"time":"2025-01-26T08:07:59.406115041Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T08:08:01.944464607Z","level":"INFO","msg":"stream: closing","id":"ggt4kvme"}
+{"time":"2025-01-26T08:08:01.944550009Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T08:08:01.945449887Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T08:08:01.945693214Z","level":"INFO","msg":"handler: closed","stream_id":"ggt4kvme"}
+{"time":"2025-01-26T08:08:01.945792717Z","level":"INFO","msg":"writer: Close: closed","stream_id":"ggt4kvme"}
+{"time":"2025-01-26T08:08:01.945827649Z","level":"INFO","msg":"sender: closed","stream_id":"ggt4kvme"}
+{"time":"2025-01-26T08:08:01.948721354Z","level":"INFO","msg":"stream: closed","id":"ggt4kvme"}

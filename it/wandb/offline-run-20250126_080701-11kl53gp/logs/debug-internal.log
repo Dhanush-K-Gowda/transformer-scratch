@@ -1,0 +1,14 @@
+{"time":"2025-01-26T08:07:01.621120025Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_080701-11kl53gp/logs/debug-core.log"}
+{"time":"2025-01-26T08:07:01.727852747Z","level":"INFO","msg":"created new stream","id":"11kl53gp"}
+{"time":"2025-01-26T08:07:01.72865699Z","level":"INFO","msg":"stream: started","id":"11kl53gp"}
+{"time":"2025-01-26T08:07:01.728687573Z","level":"INFO","msg":"writer: Do: started","stream_id":"11kl53gp"}
+{"time":"2025-01-26T08:07:01.728726225Z","level":"INFO","msg":"handler: started","stream_id":"11kl53gp"}
+{"time":"2025-01-26T08:07:01.728754869Z","level":"INFO","msg":"sender: started","stream_id":"11kl53gp"}
+{"time":"2025-01-26T08:07:01.743670222Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T08:07:04.105366273Z","level":"INFO","msg":"stream: closing","id":"11kl53gp"}
+{"time":"2025-01-26T08:07:04.105445942Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T08:07:04.106396114Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T08:07:04.106578702Z","level":"INFO","msg":"handler: closed","stream_id":"11kl53gp"}
+{"time":"2025-01-26T08:07:04.10668348Z","level":"INFO","msg":"writer: Close: closed","stream_id":"11kl53gp"}
+{"time":"2025-01-26T08:07:04.106755915Z","level":"INFO","msg":"sender: closed","stream_id":"11kl53gp"}
+{"time":"2025-01-26T08:07:04.10921478Z","level":"INFO","msg":"stream: closed","id":"11kl53gp"}

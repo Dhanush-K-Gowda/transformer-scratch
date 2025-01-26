@@ -1,0 +1,14 @@
+{"time":"2025-01-26T09:11:48.988933268Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_091148-uylnatsc/logs/debug-core.log"}
+{"time":"2025-01-26T09:11:49.096878032Z","level":"INFO","msg":"created new stream","id":"uylnatsc"}
+{"time":"2025-01-26T09:11:49.097686166Z","level":"INFO","msg":"stream: started","id":"uylnatsc"}
+{"time":"2025-01-26T09:11:49.097717921Z","level":"INFO","msg":"writer: Do: started","stream_id":"uylnatsc"}
+{"time":"2025-01-26T09:11:49.097753569Z","level":"INFO","msg":"handler: started","stream_id":"uylnatsc"}
+{"time":"2025-01-26T09:11:49.097786918Z","level":"INFO","msg":"sender: started","stream_id":"uylnatsc"}
+{"time":"2025-01-26T09:11:49.111550112Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T09:13:43.623947149Z","level":"INFO","msg":"stream: closing","id":"uylnatsc"}
+{"time":"2025-01-26T09:13:43.624061782Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T09:13:43.6247328Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T09:13:43.624955484Z","level":"INFO","msg":"handler: closed","stream_id":"uylnatsc"}
+{"time":"2025-01-26T09:13:43.624996129Z","level":"INFO","msg":"writer: Close: closed","stream_id":"uylnatsc"}
+{"time":"2025-01-26T09:13:43.625123748Z","level":"INFO","msg":"sender: closed","stream_id":"uylnatsc"}
+{"time":"2025-01-26T09:13:43.628733905Z","level":"INFO","msg":"stream: closed","id":"uylnatsc"}

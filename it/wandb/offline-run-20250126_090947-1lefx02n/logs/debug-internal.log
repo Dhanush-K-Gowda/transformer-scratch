@@ -1,0 +1,14 @@
+{"time":"2025-01-26T09:09:47.856452404Z","level":"INFO","msg":"stream: starting","core version":"0.19.4","symlink path":"/content/drive/My Drive/transformer/wandb/offline-run-20250126_090947-1lefx02n/logs/debug-core.log"}
+{"time":"2025-01-26T09:09:47.963915436Z","level":"INFO","msg":"created new stream","id":"1lefx02n"}
+{"time":"2025-01-26T09:09:47.96537683Z","level":"INFO","msg":"stream: started","id":"1lefx02n"}
+{"time":"2025-01-26T09:09:47.96545936Z","level":"INFO","msg":"handler: started","stream_id":"1lefx02n"}
+{"time":"2025-01-26T09:09:47.965571336Z","level":"INFO","msg":"sender: started","stream_id":"1lefx02n"}
+{"time":"2025-01-26T09:09:47.965415896Z","level":"INFO","msg":"writer: Do: started","stream_id":"1lefx02n"}
+{"time":"2025-01-26T09:09:47.978519998Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-26T09:11:10.730547224Z","level":"INFO","msg":"stream: closing","id":"1lefx02n"}
+{"time":"2025-01-26T09:11:10.730711346Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-26T09:11:10.731880576Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-26T09:11:10.732200985Z","level":"INFO","msg":"handler: closed","stream_id":"1lefx02n"}
+{"time":"2025-01-26T09:11:10.732267197Z","level":"INFO","msg":"writer: Close: closed","stream_id":"1lefx02n"}
+{"time":"2025-01-26T09:11:10.732524917Z","level":"INFO","msg":"sender: closed","stream_id":"1lefx02n"}
+{"time":"2025-01-26T09:11:10.73818788Z","level":"INFO","msg":"stream: closed","id":"1lefx02n"}
