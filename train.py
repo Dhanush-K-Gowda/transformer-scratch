@@ -22,7 +22,7 @@ from huggingface_hub import login
 from transformers import AutoModel, AutoTokenizer, PreTrainedModel, PreTrainedTokenizer
 
 # CHANGE: Log in to Hugging Face Hub
-login(token="token:)")  # Replace with your Hugging Face token
+login(token)  # Replace with your Hugging Face token
 
 # WandB for experiment tracking (optional)
 import wandb

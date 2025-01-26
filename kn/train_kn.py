@@ -23,7 +23,7 @@ from huggingface_hub import login
 from transformers import AutoModel, AutoTokenizer, PreTrainedModel, PreTrainedTokenizer
 
 # CHANGE: Log in to Hugging Face Hub
-login(token="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")  # Replace with your Hugging Face token
+login(token)  # Replace with your Hugging Face token
 
 # WandB for experiment tracking (optional)
 import wandb
@@ -57,12 +57,12 @@ def load_latest_checkpoint(checkpoint_dir, device):
     checkpoints = [f for f in os.listdir(checkpoint_dir) if f.startswith('checkpoint_epoch_')]
     if not checkpoints:
         return None, None, None, None, 0
-    
+
     # Find latest epoch
     epochs = [int(f.split('_')[-1].split('.')[0]) for f in checkpoints]
     latest_epoch = max(epochs)
     checkpoint_path = f"{checkpoint_dir}checkpoint_epoch_{latest_epoch:02d}.pt"
-    
+
     checkpoint = torch.load(checkpoint_path, map_location=device)
     return (
         checkpoint['model_state_dict'],
@@ -197,7 +197,7 @@ def get_or_build_tokenizer(config, ds, lang):
 def get_ds(config):
     # Load the dataset (single split: "train")
     ds_raw = load_dataset(
-        "ai4bharat/samanantar", 
+        "ai4bharat/samanantar",
         f"{config['lang_tgt']}",
         split="train"  # Returns a Dataset, not DatasetDict
     )
@@ -222,19 +222,19 @@ def get_ds(config):
 
     # Initialize datasets
     train_ds = BilingualDataset(
-        train_ds_raw, 
-        tokenizer_src, 
-        tokenizer_tgt, 
-        config['lang_src'], 
-        config['lang_tgt'], 
+        train_ds_raw,
+        tokenizer_src,
+        tokenizer_tgt,
+        config['lang_src'],
+        config['lang_tgt'],
         config['seq_len']
     )
     val_ds = BilingualDataset(
-        val_ds_raw, 
-        tokenizer_src, 
-        tokenizer_tgt, 
-        config['lang_src'], 
-        config['lang_tgt'], 
+        val_ds_raw,
+        tokenizer_src,
+        tokenizer_tgt,
+        config['lang_src'],
+        config['lang_tgt'],
         config['seq_len']
     )
 
@@ -252,7 +252,7 @@ def train_model(config):
     # Mount Google Drive and set up checkpoint directory
     checkpoint_dir = "/content/drive/My Drive/transformer/transformer_checkpoints/"
     Path(checkpoint_dir).mkdir(parents=True, exist_ok=True)
-    
+
     # Define the device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
@@ -265,19 +265,19 @@ def train_model(config):
         latest_epoch = max(epochs)
         checkpoint_path = f"{checkpoint_dir}checkpoint_epoch_{latest_epoch:02d}.pt"
         checkpoint = torch.load(checkpoint_path, map_location=device)
-        
+
         # Load state from checkpoint
         tokenizer_src = checkpoint['tokenizer_src']
         tokenizer_tgt = checkpoint['tokenizer_tgt']
         # Recreate DataLoaders with existing tokenizers
         train_dataloader, val_dataloader, _, _ = get_ds(config, tokenizer_src=tokenizer_src, tokenizer_tgt=tokenizer_tgt)
-        
+
         model = get_model(config, tokenizer_src.get_vocab_size(), tokenizer_tgt.get_vocab_size()).to(device)
         model.load_state_dict(checkpoint['model_state_dict'])
-        
+
         optimizer = torch.optim.Adam(model.parameters(), lr=config['lr'], eps=1e-9)
         optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        
+
         initial_epoch = checkpoint['epoch'] + 1
         global_step = checkpoint['global_step']
         print(f"Resuming training from epoch {latest_epoch}")
@@ -299,7 +299,7 @@ def train_model(config):
         torch.cuda.empty_cache()
         model.train()
         batch_iterator = tqdm(train_dataloader, desc=f"Processing Epoch {epoch:02d}")
-        
+
         for batch in batch_iterator:
             encoder_input = batch['encoder_input'].to(device)
             decoder_input = batch['decoder_input'].to(device)
@@ -314,7 +314,7 @@ def train_model(config):
             # Calculate loss
             label = batch['label'].to(device)
             loss = loss_fn(proj_output.view(-1, tokenizer_tgt.get_vocab_size()), label.view(-1))
-            
+
             # Backpropagation
             loss.backward()
             optimizer.step()
@@ -326,7 +326,7 @@ def train_model(config):
             global_step += 1
 
         # Validation and checkpointing
-        run_validation(model, val_dataloader, tokenizer_src, tokenizer_tgt, config['seq_len'], device, 
+        run_validation(model, val_dataloader, tokenizer_src, tokenizer_tgt, config['seq_len'], device,
                       lambda msg: batch_iterator.write(msg), global_step)
 
         # Save checkpoint to Google Drive
@@ -346,12 +346,12 @@ if __name__ == '__main__':
     warnings.filterwarnings("ignore")
     config = get_config()
     config['num_epochs'] = 20
-    
+
     # Mount Google Drive
     # from google.colab import drive
     # drive.mount('/content/drive')
-    
+
     # Initialize wandb
     wandb.init(project="pytorch-transformer", config=config)
-    
+
     train_model(config)
