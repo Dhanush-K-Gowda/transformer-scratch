@@ -22,7 +22,7 @@ from huggingface_hub import login
 from transformers import AutoModel, AutoTokenizer, PreTrainedModel, PreTrainedTokenizer
 
 # CHANGE: Log in to Hugging Face Hub
-login(token="your_huggingface_token")  # Replace with your Hugging Face token
+login(token="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")  # Replace with your Hugging Face token
 
 # WandB for experiment tracking (optional)
 import wandb
@@ -30,6 +30,34 @@ import wandb
 # Torchmetrics for evaluation metrics
 import torchmetrics
 
+
+from huggingface_hub import HfApi, ModelFilter
+
+def get_latest_hf_epoch(repo_name):
+    api = HfApi()
+
+    # List all models in the repository
+    models = api.list_models(
+        filter=ModelFilter(model_name=repo_name)
+    )
+
+    if not models:
+        return None  # No models found
+
+    # Extract epoch numbers from model tags
+    epochs = []
+    for model in models:
+        tags = model.tags
+        if tags:
+            for tag in tags:
+                if tag.startswith("epoch_"):
+                    epoch = int(tag.split("_")[-1])
+                    epochs.append(epoch)
+
+    if not epochs:
+        return None  # No epochs found
+
+    return max(epochs)  # Return the latest epoch
 
 def greedy_decode(model, source, source_mask, tokenizer_src, tokenizer_tgt, max_len, device):
     sos_idx = tokenizer_tgt.token_to_id('[SOS]')
@@ -188,27 +216,31 @@ def get_model(config, vocab_src_len, vocab_tgt_len):
 
 
 def save_model_to_hub(model, tokenizer_src, tokenizer_tgt, epoch, config):
-    # Save the model locally first
-    model.save_pretrained(f"{config['model_folder']}/epoch_{epoch:02d}")
-    tokenizer_src.save_pretrained(f"{config['model_folder']}/epoch_{epoch:02d}/tokenizer_src")
-    tokenizer_tgt.save_pretrained(f"{config['model_folder']}/epoch_{epoch:02d}/tokenizer_tgt")
+    repo_name = config["hf_repo_name"]
 
-    # CHANGE: Push to Hugging Face Hub
-    model.push_to_hub(f"{config['hf_repo_name']}_epoch_{epoch:02d}")
-    tokenizer_src.push_to_hub(f"{config['hf_repo_name']}_epoch_{epoch:02d}/tokenizer_src")
-    tokenizer_tgt.push_to_hub(f"{config['hf_repo_name']}_epoch_{epoch:02d}/tokenizer_tgt")
+    # Push model with a tag like "epoch_00"
+    model.push_to_hub(
+        repo_name,
+        commit_message=f"Epoch {epoch:02d}",
+        tag=f"epoch_{epoch:02d}"  # Tag the checkpoint
+    )
 
-    print(f"Model and tokenizers saved to Hugging Face Hub: {config['hf_repo_name']}_epoch_{epoch:02d}")
+    # Push tokenizers to the same repo
+    tokenizer_src.push_to_hub(repo_name)
+    tokenizer_tgt.push_to_hub(repo_name)
 
 
-def load_model_from_hub(repo_name, device):
-    # CHANGE: Load model and tokenizers from Hugging Face Hub
-    model = AutoModel.from_pretrained(repo_name).to(device)
-    tokenizer_src = AutoTokenizer.from_pretrained(f"{repo_name}/tokenizer_src")
-    tokenizer_tgt = AutoTokenizer.from_pretrained(f"{repo_name}/tokenizer_tgt")
 
-    print(f"Model and tokenizers loaded from Hugging Face Hub: {repo_name}")
+
+def load_model_from_hub(repo_name, epoch, device):
+    model = AutoModel.from_pretrained(
+        repo_name,
+        revision=f"epoch_{epoch:02d}"  # Load from the tagged checkpoint
+    ).to(device)
+    tokenizer_src = AutoTokenizer.from_pretrained(repo_name)
+    tokenizer_tgt = AutoTokenizer.from_pretrained(repo_name)
     return model, tokenizer_src, tokenizer_tgt
+
 
 
 def train_model(config):
@@ -219,11 +251,21 @@ def train_model(config):
     # Make sure the weights folder exists
     Path(config['model_folder']).mkdir(parents=True, exist_ok=True)
 
+    if config["preload"] == "auto":
+        latest_epoch = get_latest_hf_epoch(config["hf_repo_name"])
+        if latest_epoch is not None:
+            config["preload"] = f"hf://{config['hf_repo_name']}@epoch_{latest_epoch:02d}"
+            print(f"Resuming from epoch {latest_epoch} on Hugging Face Hub.")
+        else:
+            config["preload"] = None
+            print("No existing model found on Hugging Face Hub. Starting from scratch.")
+
     # CHANGE: Load or initialize model and tokenizers
-    if config['preload'] and config['preload'].startswith("hf://"):
-        # Load from Hugging Face Hub
-        repo_name = config['preload'].replace("hf://", "")
-        model, tokenizer_src, tokenizer_tgt = load_model_from_hub(repo_name, device)
+    if config["preload"] and config["preload"].startswith("hf://"):
+        repo_info = config["preload"].replace("hf://", "").split("@")
+        repo_name = repo_info[0]
+        tag = repo_info[1] if len(repo_info) > 1 else None
+        model = AutoModel.from_pretrained(repo_name, revision=tag).to(device)
     else:
         # Initialize from scratch
         train_dataloader, val_dataloader, tokenizer_src, tokenizer_tgt = get_ds(config)

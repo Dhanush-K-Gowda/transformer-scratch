@@ -11,7 +11,8 @@ def get_config():
         "lang_tgt":"it",
         "model_folder":"weights",
         "model_filename":"tmodel_",
-        "preload":None,
+        "hf_repo_name": "dhanushkgowda/gpt_basic_translate",
+        "preload": "auto",
         "tokenizer_file":"tokenizer_{0}.json",
         "experiment_name":"runs/tmodel"
 
